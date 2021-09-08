@@ -11,19 +11,21 @@
 # Model such an application form as a Python class below, and instantiate
 # a few objects from it.
 
-class Ingredient:
-    def __init__(self, name, amount, taste):
+class Patient:
+    def __init__(self, name, age, reason, history):
         self.name = name
-        self.amount = amount
-        self.taste = taste
-    def expire(self):
-        print(f'Whoops, your {self.name} went bad')
-        self.name = 'expired ' + self.name
-    def __str__(self):
-        return f'{self.name}: {self.amount}'
+        self.age = age
+        self.reason = reason
+        self.history = history
     def __repr__(self):
-        return f'Ingredient(name={self.name}, amount={self.amount})'
+        if self.history != None:
+            return f'Patient {self.name}, {self.age} years old, is here for {self.reason}. Past medical history includes {self.history}.'
+        else:
+            return f'Patient {self.name}, {self.age} years old is here for {self.reason}.'
 
-p = Ingredient('peas', 100, 'Salty')
 
-print(repr(p))
+p1 = Patient('Chris', 28, 'headache', None)
+p2 = Patient('Ruud', 45, 'shoulder injury', 'migraines')
+p3 = Patient('Johnny', 43, 'labs', 'appendicitis, IBS, fainting, dizziness')
+print(p3)
+
