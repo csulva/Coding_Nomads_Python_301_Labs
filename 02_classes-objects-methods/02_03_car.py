@@ -6,3 +6,23 @@
 #
 # Create at least two different objects of this `Car()` class and demonstrate
 # changing the objects' attributes.
+
+class Car:
+
+    def __init__(self, model, year, max_speed):
+        self.model = model
+        self.year = year
+        self.max_speed = max_speed
+    def add(self, max_speed):
+        self.max_speed += 5
+        return self.max_speed
+    def __repr__(self):
+        return f'The new {self.year} {self.model} model has a max speed of {self.max_speed} MPH.'
+
+bmw_5 = Car('BMW 5 Series', 2022, 155)
+lexus_is = Car('Lexus IS', 2021, 143)
+
+bmw_5.add(bmw_5.max_speed)
+bmw_5.add(bmw_5.max_speed)
+print(bmw_5)
+
