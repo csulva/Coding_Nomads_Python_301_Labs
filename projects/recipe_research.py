@@ -26,3 +26,4 @@ onion = Ingredient('onion', 4)
 carrot = Ingredient('carrot', 5)
 
 print(onion + carrot)
+onion.get_info()
