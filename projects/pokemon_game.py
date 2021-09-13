@@ -22,7 +22,7 @@ class Pokemon:
         self.hp = hp
     
     def __str__(self):
-        return f'{self.name} is a {self.primary_type} type, with {self.max_hp} HP. It\'s current HP is {self.hp}'
+        return f'{self.name} is a {self.primary_type} type, with {self.max_hp} HP. It\'s current HP is {self.hp}.'
 
     # - Implement a `battle()` method based on rock-paper-scissors that
     #   decides who wins based only on the `primary_type`:
@@ -79,3 +79,4 @@ blastoise = Pokemon('Blastoise', 'water', 60, 160, 160)
 charizard.battle(squirtle)
 bulbasaur.battle(charizard)
 bulbasaur.feed()
+print(charmeleon)
