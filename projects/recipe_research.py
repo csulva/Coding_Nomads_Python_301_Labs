@@ -12,7 +12,7 @@ class Ingredient:
     def __str__(self):
         return f'{self.name}: {self.amount}'
 
-#Create instance method .get_info() that takes .name attribute of an Ingredient() and creates a Wikipedia URL
+    #Create instance method .get_info() that takes .name attribute of an Ingredient() and creates a Wikipedia URL
     def get_info(self):
         return webbrowser.open(f'https://en.wikipedia.org/wiki/{self.name}')
 
