@@ -29,7 +29,13 @@ class Vegetable(Ingredient):
 
     def expire(self):
         print(f'Your {self.amount} {self.name}(s) have 7 days left...')
+    
+    def chop(self):
+        self.amount *= 5
+        self.name = 'chopped ' + self.name
 
-v = Vegetable('onion', 622)
+onion = Vegetable('onions', 60)
 
-v.expire()
+onion.chop()
+onion.expire()
+print(onion)
