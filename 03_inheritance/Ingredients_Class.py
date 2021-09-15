@@ -46,18 +46,20 @@ class Vegetable(Ingredient):
     def chop(self):
         self.amount = self.amount * 5
         self.name = 'pieces of ' + self.name
+
     
 
 p = Ingredient('Peas', 6)
-print(p)
 s = Spice('Salt', 200, 'salty')
 pep = Spice('Pepper', 100, 'spicy')
 salt = Ingredient('Salt', 100)
 
 carrot = Vegetable('carrots', 5, 'orange')
 
-carrot.chop()
-print(carrot)
-print(s.__hash__())
 
 
+if __name__ == "__main__":
+
+    print(p)
+    carrot.chop()
+    print(carrot)
