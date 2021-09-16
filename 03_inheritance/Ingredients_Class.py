@@ -56,8 +56,6 @@ salt = Ingredient('Salt', 100)
 
 carrot = Vegetable('carrots', 5, 'orange')
 
-
-
 if __name__ == "__main__":
 
     print(p)

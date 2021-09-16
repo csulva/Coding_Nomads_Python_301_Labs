@@ -8,13 +8,13 @@ from Ingredients_Class import Ingredient, Spice
 import webbrowser
 
 class Soup:
-    def __init__(self, name, *args):
+    def __init__(self, name, *ingredients):
         self.name = name
-        self.args = args
+        self.ingredients = ingredients
     
     def cook(self):
-        string = ''        
-        for x in self.args:
+        string = ''
+        for x in self.ingredients:
             string += f'{x}+'
         string += 'soup+recipe'
         webbrowser.open(f'https://www.google.com/search?q={string}')
