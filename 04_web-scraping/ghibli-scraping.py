@@ -2,7 +2,6 @@ import requests
 import pprint
 import json
 
-
 with open('ghibli_data.json', 'r') as fin:
     data = json.load(fin)
 
