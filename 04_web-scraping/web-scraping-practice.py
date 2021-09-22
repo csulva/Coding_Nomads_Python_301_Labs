@@ -20,11 +20,12 @@ recipes = []
 for p in pages:
     p1 = requests.get(f'https://codingnomads.github.io/recipes/{p}')
     recipe = BeautifulSoup(p1.text)
-    info = recipe.find('div', class_='md')
+    info = recipe.find('div', class_='is-normal')
+    # info = recipe.find('div', class_='md')
     recipes.append(info.text)
-# print(recipes)
-# with open('recipe_data.json', 'w') as fout:
-#     json.dump(recipes, fout)
+# print(info.text)
+with open('recipe_data.json', 'w') as fout:
+    json.dump(recipes, fout)
 
 
 url = 'https://codingnomads.github.io/recipes/recipes/68-kimchi-fried-rice-wi.html'

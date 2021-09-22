@@ -8,4 +8,39 @@
 # into the code base, to get some additional practice in working with your
 # custom Python classes.
 
-URL = "https://codingnomads.github.io/recipes"
+# Imports
+import requests
+from bs4 import BeautifulSoup
+import json
+import time
+
+# URL = "https://codingnomads.github.io/recipes"
+# response = requests.get(URL)
+# data = response.text
+
+# print(type(data))
+with open ('recipe_data.json', 'r') as fin:
+    data = json.load(fin)
+
+
+# Create the search function
+def search_recipes(recipes, ingredients):
+    for recipe in recipes:
+        if all(ingredient in recipe for ingredient in ingredients):
+            print(recipe)
+
+# Do the searching
+list_of_ingredients = []
+ingredient = input('What ingredient do you have? type "stop" to stop... ')
+list_of_ingredients.append(ingredient)
+while ingredient != 'stop'.lower():
+    ingredient = input('What else? type "stop" to stop... ')
+    if ingredient == 'stop'.lower():
+        print('searching for recipes...')
+        time.sleep(2)
+        search_recipes(data, list_of_ingredients)
+    list_of_ingredients.append(ingredient)
+
+
+
+
