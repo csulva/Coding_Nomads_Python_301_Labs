@@ -5,3 +5,13 @@
 # - if the user enters a zero as the divisor
 #
 # Test it and make sure it does not crash when you enter incorrect values.
+
+while True:
+    dividend = input('Enter a number as your dividend: ')
+    divisor = input('Enter a number as your divisor: ')
+    try:
+        print(int(dividend) / int(divisor))
+    except ZeroDivisionError:
+        print('You cannot divide by zero friend.')
+    except ValueError:
+        print('Please enter an integer')

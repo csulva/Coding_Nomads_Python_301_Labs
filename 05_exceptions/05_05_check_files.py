@@ -4,4 +4,13 @@
 # with specific `except` statements, and continue to do the calculation
 # only if neither of them applies.
 
-file_name = 'integers.txt'
+try:
+    file_name = 'integers.txt'
+    with open(file_name, 'r') as fin:
+        data = fin.read()
+    print(int(data[0]) / 4)
+except ValueError:
+    print('Cannot convert to int')
+except IOError:
+    print('Do you have the correct filename?')
+

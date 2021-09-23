@@ -13,3 +13,24 @@
 #    should NEVER terminate with a Traceback.
 #     a) Which exception can you expect to encounter? Why?
 #     b) How do you catch it to avoid the program from terminating with a traceback?
+
+with open('books/crime_and_punishment.txt', 'r') as fin:
+    crime = fin.read()
+crime = ''
+with open('books/pride_and_prejudice.txt', 'r') as fin:
+    pride = fin.read()
+
+with open('books/war_and_peace.txt', 'r') as fin:
+    war = fin.read()
+
+books = [crime, pride, war]
+
+for book in books:
+    x = 1
+    try:
+        print(book[0])
+    except IndexError:
+        print(f'book #{x} not found')
+    x += 1
+    # except FileNotFoundError:
+    #     print(f'{book} file not found')
