@@ -48,6 +48,7 @@ if __name__ == "__main__":
         # breakpoint()
         author = get_author(soup)
         recipe = get_recipe(soup)
-        print(f"({author})\t[{recipe}]\n\n\n")
+        # print(f"({author})\t[{recipe}]\n\n\n")
 
-print(get_page_content(BASE_URL))
+print(get_recipe(make_soup(get_html_content('https://codingnomads.github.io/recipes/recipes/2-steak-and-eggs-in-ca.html'
+)))[0:5])

@@ -1,42 +1,40 @@
 # Write a unittest test suite to test the rescrape module
 
 import unittest
-import rescrape
+import rescrape as r
 
-import requests
-from bs4 import BeautifulSoup
-import pprint
-import json
+class TestRescrape(unittest.TestCase):
+    pass
 
-# Extract the title of each recipe and save it as a variable
-BASE_URL = "https://codingnomads.github.io/recipes/"
-page = requests.get(BASE_URL)
+    # requests can establish a connection and receive a valid response
+    def test_get_page_content(self):
+        r.get_page_content(r.BASE_URL)
 
-soup = BeautifulSoup(page.text)
-links = soup.find_all('a')
-titles = []
-for link in links:
-    titles.append(link.text)
-# pprint.pprint(titles)
+    # the response contains HTML code
+    def test_get_html_content(self):
+        r.get_html_content(r.BASE_URL)
+    
+    # the HTML can be successfully converted to a Beautiful Soup object
+    def test_make_soup_function(self):
+        r.make_soup(r.get_html_content(r.BASE_URL))
+    
+    # can identify all links from the index page
+    def test_get_recipe_links(self):
+        r.get_recipe_links(r.make_soup(r.get_html_content(r.BASE_URL)))
+    
+    # can identify the author of a recipe
+    def test_get_author(self):
+        url = 'https://codingnomads.github.io/recipes/recipes/2-steak-and-eggs-in-ca.html'
+        self.assertEqual(r.get_author(r.make_soup(r.get_html_content(url))), 'irharrier2')
 
-# Extract the text body of each recipe and save it as a variable
-pages = [link['href'] for link in links]
-
-recipes = []
-for p in pages:
-    p1 = requests.get(f'https://codingnomads.github.io/recipes/{p}')
-    recipe = BeautifulSoup(p1.text)
-    info = recipe.find('div', class_='is-normal')
-    recipes.append(info.text)
-with open('recipe_data.json', 'w') as fout:
-    json.dump(recipes, fout)
-
-
-url = 'https://codingnomads.github.io/recipes/recipes/68-kimchi-fried-rice-wi.html'
-new_page = requests.get(url)
-more_soup = BeautifulSoup(new_page.text)
-author = more_soup.find('p', class_='author')
-kimchi = more_soup.find('div', class_='md')
+    # can get the main recipe text
+    def test_get_recipe(self):
+        url = 'https://codingnomads.github.io/recipes/recipes/2-steak-and-eggs-in-ca.html'
+        self.assertEqual(r.get_recipe(r.make_soup(r.get_html_content(url)))[0:4], 'Here')
 
 
-pprint.pprint(pages)
+
+if __name__ == "__main__":
+    unittest.main()
+
+
