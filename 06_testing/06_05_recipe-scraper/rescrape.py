@@ -50,5 +50,3 @@ if __name__ == "__main__":
         recipe = get_recipe(soup)
         # print(f"({author})\t[{recipe}]\n\n\n")
 
-print(get_recipe(make_soup(get_html_content('https://codingnomads.github.io/recipes/recipes/2-steak-and-eggs-in-ca.html'
-)))[0:5])
