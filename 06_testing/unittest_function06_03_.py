@@ -10,3 +10,9 @@
 # Keep in mind that you will run into an error when you'll attempt to import
 # this file, because Python modules can't begin with a number.
 # You can rename the file to make it work :)
+
+import math
+
+def area_of_circle(radius):
+    return (math.pi * radius) ** 2
+
