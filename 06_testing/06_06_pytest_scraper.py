@@ -22,15 +22,15 @@ def get_titles_of_recipes_from_webpage_html(soup):
     titles = soup.find('div', class_='content is-normal')
     return titles.text
 
-# def test_get_html_from_webpage():
-#     assert "<!DOCTYPE hmtl>" in (get_html_from_webpage(url))
+def test_get_html_from_webpage():
+    assert "<!DOCTYPE html>" in get_html_from_webpage(url)
 
 
 x = clean_up_html_with_beautiful_soup(get_html_from_webpage(url))
 p = get_titles_of_recipes_from_webpage_html(x).strip()
 
-def test_get_titles_of_recipes_from_webpage_html():
-    assert p[0] == 'I'
+# def test_get_titles_of_recipes_from_webpage_html():
+#     assert p[0] == 'I'
 
-def test_get_web_data():
-    assert get_web_data(url).status_code == 200
+# def test_get_web_data():
+#     assert get_web_data(url).status_code == 200
