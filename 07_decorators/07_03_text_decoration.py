@@ -8,12 +8,15 @@
 # Hello
 # ******************************
 
+
+#FIX this 
+
 def symbol(symbol):
     def decorate(function):
         def wrapper(msg):
-            print(symbol+symbol+symbol+symbol+symbol+symbol+symbol+symbol)
+            print(symbol * 10)
             print(function(msg))
-            print(symbol+symbol+symbol+symbol+symbol+symbol+symbol+symbol)
+            print(symbol * 10)
         return wrapper
     return decorate
 

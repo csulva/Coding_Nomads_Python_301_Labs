@@ -10,7 +10,6 @@ def time_executor(func):
         return f'Target heart rate: {func(*args)}' + f' executed at: {datetime.datetime.now()}'
     return wrapper_func
 
-
 @time_executor
 def target_heart_rate(max_heart_rate, age):
     return max_heart_rate - age

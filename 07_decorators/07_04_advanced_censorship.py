@@ -5,14 +5,16 @@
 def bad_words(*words):
     def censor(function):
         def wrapper_func(msg):
-            new_words = str(words)
-            new_func = str(function(msg)).replace(new_words, '*')
-            print(new_func)
+            sentence = str(function(msg))
+            for word in words:
+                asterisk = len(word) * '*'
+                sentence = sentence.replace(word, asterisk)
+            print(sentence)
         return wrapper_func
     return censor
 
-@bad_words('shoot', 'crab', 'foul')
+@bad_words('shoot', 'crab', 'foul', 'test')
 def lets_talk(msg):
     return msg
 
-lets_talk('shoot I hate crabs and fouls')
+lets_talk('shoot I hate crabs and fouls and tests')
