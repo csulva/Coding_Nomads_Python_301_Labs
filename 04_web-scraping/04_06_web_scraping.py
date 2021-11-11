@@ -9,7 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-url = 'https://www.imdb.com/title/tt0099864/trivia/?ref_=tt_trv_trv'
+url = 'https://www.imdb.com/title/tt2382320/trivia/?ref_=tt_trv_trv'
 response = requests.get(url)
 data = BeautifulSoup(response.text)
 
@@ -23,7 +23,8 @@ for x in facts:
 # with open('it_facts.json', 'w') as fout:
 #     json.dump(list_of_trivia, fout)
 
-with open('it_facts.json', 'r') as fin:
-    data = json.load(fin)
+# with open('it_facts.json', 'r') as fin:
+#     data = json.load(fin)
 
-print(data[19])
+# print(data[19])
+print(list_of_trivia[5])
