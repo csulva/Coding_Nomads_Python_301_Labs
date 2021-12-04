@@ -19,7 +19,7 @@ import time
 # data = response.text
 
 # print(type(data))
-with open ('recipe_data.json', 'r') as fin:
+with open ('04_web-scraping/recipe_data.json', 'r') as fin:
     data = json.load(fin)
 
 
